@@ -1,6 +1,6 @@
 # commands for SERVER
 
-run:
+run-s:
 	cd server && docker-compose exec app go run server.go
 
 test:
@@ -15,12 +15,17 @@ test-coverage:
 generate:
 	cd server && docker-compose exec app go run github.com/99designs/gqlgen generate
 
-start:
+start-ctn:
 	cd server && docker-compose up -d
 
-stop:
+stop-ctn:
 	cd server && docker-compose down
 
-build:
+build-ctn:
 	cd server && docker-compose build
+
+# commands for CLIENT
+
+run-c:
+	cd client && pnpm run dev
 

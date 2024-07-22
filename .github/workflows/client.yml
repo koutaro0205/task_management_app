@@ -1,0 +1,59 @@
+name: Node.js CI
+
+# 実行トリガーの設定
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+  workflow_dispatch:
+
+# 具体的な実行内容を定義
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - uses: pnpm/action-setup@v2
+        name: setup pnpm
+        id: pnpm-install
+        with:
+          version: 8.10.2
+          run_install: false
+
+      - name: Get pnpm cache directory path
+        id: pnpm-cache-dir-path
+        run: echo "::set-output name=dir::$(pnpm cache dir)"
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        id: pnpm-cache
+        with:
+          path: ${{ steps.pnpm-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install Dependences
+        run: cd client && pnpm install --frozen-lockfile
+
+      - name: Lint Check
+        run: cd client && pnpm lint
+
+      - name: Type Check
+        run: cd client && pnpm tsc
+
+      - name: Run Test
+        run: cd client && pnpm test

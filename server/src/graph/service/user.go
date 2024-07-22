@@ -8,7 +8,7 @@ import (
 
 func GetAllUsers(db *gorm.DB) ([]*model.User, error) {
 	users := []*model.User{}
-	db.Find(&users)
+	db.Preload("Todos").Find(&users)
 
 	return users, nil
 }
@@ -16,7 +16,7 @@ func GetAllUsers(db *gorm.DB) ([]*model.User, error) {
 func GetUser(db *gorm.DB, id string) (*model.User, error) {
 	user := model.User{}
 
-	if err := db.First(&user, "id = ?", id).Error; err != nil {
+	if err := db.Preload("Todos").First(&user, "id = ?", id).Error; err != nil {
 		return nil, err
 	}
 
