@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Color } from '@/theme/color';
-import { FontSize } from '@/theme/fontSize';
-import { FontWeight } from '@/theme/fontWeight';
+import type { Color } from '@/theme/color';
+import type { FontSize } from '@/theme/fontSize';
+import type { FontWeight } from '@/theme/fontWeight';
 
 import { styles } from './style.css';
 

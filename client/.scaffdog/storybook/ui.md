@@ -13,7 +13,7 @@ questions:
     initial: ['atoms']
 ---
 
-# `ui/{{ inputs.directory }}/{{ inputs.name | pascal }}/index.stories.tsx`
+# `components/ui/{{ inputs.directory }}/{{ inputs.name | pascal }}/index.stories.tsx`
 
 ```typescript
 import { Meta, StoryObj } from '@storybook/react';

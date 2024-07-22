@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
 
+import { Icon, IconSize } from '@/components/ui/atoms/Icon';
+import { Link } from '@/components/ui/atoms/Link';
+import { Text } from '@/components/ui/atoms/Text';
 import { IconName } from '@/constants/icon';
 import { FontSize } from '@/theme/fontSize';
-import { Icon, IconSize } from '@/ui/atoms/Icon';
-import { Link } from '@/ui/atoms/Link';
-import { Text } from '@/ui/atoms/Text';
 
 import { styles, type Size } from './style.css';
 

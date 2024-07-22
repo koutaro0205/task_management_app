@@ -29,3 +29,11 @@ build-ctn:
 run-c:
 	cd client && pnpm run dev
 
+codegen-c:
+	cd client && pnpm run codegen
+
+# GQL Schema
+
+update-schema:
+	cp -r -f graphql client && cd client && pnpm run codegen
+

@@ -16,7 +16,7 @@ questions:
     initial: true
 ---
 
-# `ui/{{ inputs.directory }}/{{ inputs.name | pascal }}/index.tsx`
+# `components/ui/{{ inputs.directory }}/{{ inputs.name | pascal }}/index.tsx`
 
 ```typescript
 import React from 'react';
@@ -33,7 +33,7 @@ export const {{ inputs.name | pascal }}: React.FC<Props> = React.memo(({ childre
 
 ```
 
-# `ui/{{ inputs.directory }}/{{ inputs.name | pascal }}/style.css.ts`
+# `components/ui/{{ inputs.directory }}/{{ inputs.name | pascal }}/style.css.ts`
 
 ```typescript
 import { style } from '@vanilla-extract/css';
@@ -41,7 +41,7 @@ import { style } from '@vanilla-extract/css';
 export const styles = style({});
 ```
 
-# `ui/{{ inputs.directory }}/{{ !inputs.story && '!' }}{{ inputs.name | pascal }}/index.stories.tsx`
+# `components/ui/{{ inputs.directory }}/{{ !inputs.story && '!' }}{{ inputs.name | pascal }}/index.stories.tsx`
 
 ```typescript
 import type { Meta, StoryObj } from '@storybook/react';

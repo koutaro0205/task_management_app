@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { IconName } from '@/constants/icon';
-import { Button } from '@/ui/atoms/Button';
-import { Icon } from '@/ui/atoms/Icon';
-import { Text } from '@/ui/atoms/Text';
+import { Button } from '@/components/ui/atoms/Button';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { Text } from '@/components/ui/atoms/Text';
+import type { IconName } from '@/constants/icon';
 
 import { styles } from './style.css';
 
