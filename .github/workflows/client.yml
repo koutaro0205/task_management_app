@@ -47,7 +47,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install Dependences
-        run: cd client && pnpm install --frozen-lockfile
+        run: cd client && pnpm i
 
       - name: Lint Check
         run: cd client && pnpm lint
